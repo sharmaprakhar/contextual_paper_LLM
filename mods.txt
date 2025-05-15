@@ -1,0 +1,38 @@
+Approach Mods:
+
+0. Persist pre-loaded model in a flask app for faster experimentation
+
+1. remove references, conclusion, future work - while preparing db. right now done in post processing
+
+2. check across papers the output of appjsonify structure (1, 1.1 etc and I, A etc) - done, although appjsonify isnt perfect. might have to bring in plain text extractions in some way
+
+3. using figures - extract and run OCR (later!!)
+
+4. re-ranking (might be unavoidable)
+
+5. general approach - Inject information from {introduction} into the query
+
+
+experimentation Mods:
+
+1. [CSL-GPU] Need better GPUs if we need to do unquantized experimentation
+
+2. Few shot prompts
+
+3. Fine tuning (not needed just yet)
+
+4. restrict summary model output. Provide few shot prompts for all prompt templates
+
+
+
+Order of influence (estimated):
+
+1. Reranking - query for reranking and query for final output could/should be different
+2. Few shot prompting
+3. Fine tuning
+4. Other models 
+5. model specific prompt
+
+
+ -- to see which users --
+ps -up `nvidia-smi -q -x | grep pid | sed -e 's/<pid>//g' -e 's/<\/pid>//g' -e 's/^[[:space:]]*//'`
