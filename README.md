@@ -1,12 +1,27 @@
 # contextual_paper_LLM
-This is an implementation of contextual retrieval for academic papers. The current version sets up a 5G network security expert LLM and a db index geared towards efficient information extraction from 4G/5G/LTE academic papers.
 
-# Environment
-This code was tested on python 3.11. Currently only GPU (cuda) environments supported. 
+This repository implements contextual retrieval for academic papers, with a focus on 4G/5G/LTE network security. It sets up:
+- A domain-adapted LLM acting as a 5G security expert
+- A vector database index for efficient semantic retrieval
+- A pipeline for processing and extracting insights from relevant academic papers
 
-# Install dependencies
+---
+
+## Environment
+
+- Python 3.11
+- CUDA-enabled GPU (required)
+- Tested on Linux environments
+
+Note: CPU-only environments are currently not supported.
+
+---
+
+## Installation
+
+Create a new Conda environment and install dependencies:
+
+```bash
 conda create -n contextual_paper_retrieval python=3.11
-<br>
 conda activate contextual_paper_retrieval
-<br>
 pip install -r requirements.txt
