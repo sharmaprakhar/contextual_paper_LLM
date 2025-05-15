@@ -25,3 +25,26 @@ Create a new Conda environment and install dependencies:
 conda create -n contextual_paper_retrieval python=3.11
 conda activate contextual_paper_retrieval
 pip install -r requirements.txt
+```
+
+## Configuration
+
+This project uses [Hydra](https://hydra.cc/) to manage configuration parameters.
+
+Configuration files are located in the `conf/` directory:
+
+- `conf/index_config.yaml` — settings for indexing academic papers
+- `conf/inference_config.yaml` — parameters for inference and retrieval
+
+## Create contextual index using an extracted paper json
+
+```bash
+python run_index.py
+```
+
+
+## Run inference for the default query (extracting names of novel 4G/5G/LTE/ORAN attacks - assumes a contextual index was created from the target paper)
+
+```bash
+python run_inference.py
+```
