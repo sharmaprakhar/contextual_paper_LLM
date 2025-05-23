@@ -45,7 +45,7 @@ def process_paper(json_path, target_sections, tokenizer, model):
                 print('---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----')
     return outputs
 
-@hydra.main(config_path="conf", config_name="llm_pipeline_config", version_base=None)
+@hydra.main(config_path="conf", config_name="inference_config", version_base=None)
 def main(cfg: DictConfig):
     os.environ["CUDA_VISIBLE_DEVICES"] = cfg.cuda_visible_devices
 
@@ -63,7 +63,7 @@ def main(cfg: DictConfig):
         print(node.metadata['title'], f"-- {node.score:.4f}")
 
     # Rerank
-    reranker = LocalLLMReranker(tokenizer=tokenizer, model=model, top_n=top_n)
+    reranker = LocalLLMReranker(tokenizer=tokenizer, model=model, top_n=cfg.reranker.top_n)
     res_reranked = reranker.postprocess_nodes(res_init)
     filtered_res = filter_nodes(res_reranked, min_score=cfg.reranker.min_score)
 
