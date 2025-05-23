@@ -38,6 +38,7 @@ def process_paper(json_path, target_sections, tokenizer, model):
     with torch.no_grad():
         for doc in content:
             title = doc['title']
+            print('\n current title:', title)
             if title in target_sections:
                 prompt = prompt_template + ''.join(doc['content'])
                 output = invoke_llm(prompt, tokenizer, model)
@@ -77,6 +78,9 @@ def main(cfg: DictConfig):
     
     # Process paper
     json_path = os.path.join(cfg.paper_dir, cfg.paper_file)
+    
+    print('target sections:', target_sections)
+    print('json_path:', json_path)
     outputs = process_paper(json_path, target_sections, tokenizer, model)
     
     print('outputs:', outputs)

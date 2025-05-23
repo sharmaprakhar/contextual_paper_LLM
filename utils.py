@@ -41,7 +41,6 @@ def extract_score(text):
 def load_index(colname):
     db = chromadb.PersistentClient(path="./contextual_chroma/")
     print("Collections present in chroma :", db.list_collections())
-    colname = "lte_inspector"
     chroma_collection = db.get_collection(colname)
     print("Number of documents in {} collection: {}".format(colname, len(chroma_collection.get()['ids'])))
     vector_store = ChromaVectorStore(chroma_collection=chroma_collection)

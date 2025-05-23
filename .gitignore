@@ -1,5 +1,7 @@
 .conda
 .vscode
 output
-.__pycache__
+__pycache__
+*.pyc
+*.sqlite3
 *.slurm
