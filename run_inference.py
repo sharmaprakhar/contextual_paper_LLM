@@ -27,6 +27,7 @@ def extract_target_sections(nodes):
     return {node.metadata['title'] for node in nodes}
 
 def process_paper(json_path, target_sections, tokenizer, model):
+    print('processing paper')
     with open(json_path, 'r') as fh:
         data = json.load(fh)
 
@@ -74,7 +75,6 @@ def main(cfg: DictConfig):
     # this is where additional filtering strategies could be added
     target_sections = extract_target_sections(filtered_res)
     
-
     # Process paper
     json_path = os.path.join(cfg.paper_dir, cfg.paper_file)
     outputs = process_paper(json_path, target_sections, tokenizer, model)
