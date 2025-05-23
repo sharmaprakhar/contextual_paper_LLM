@@ -27,7 +27,6 @@ def extract_target_sections(nodes):
     return {node.metadata['title'] for node in nodes}
 
 def process_paper(json_path, target_sections, tokenizer, model):
-    print('processing paper')
     with open(json_path, 'r') as fh:
         data = json.load(fh)
 
@@ -38,13 +37,13 @@ def process_paper(json_path, target_sections, tokenizer, model):
     with torch.no_grad():
         for doc in content:
             title = doc['title']
-            print('\n current title:', title)
+            # print('\n current title:', title)
             if title in target_sections:
                 prompt = prompt_template + ''.join(doc['content'])
                 output = invoke_llm(prompt, tokenizer, model)
                 outputs.append([title, output])
-                print(output)
-                print('---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----')
+                # print(output)
+                # print('---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----')
     return outputs
 
 @hydra.main(config_path="conf", config_name="inference_config", version_base=None)
@@ -78,12 +77,9 @@ def main(cfg: DictConfig):
     
     # Process paper
     json_path = os.path.join(cfg.paper_dir, cfg.paper_file)
-    
-    print('target sections:', target_sections)
-    print('json_path:', json_path)
     outputs = process_paper(json_path, target_sections, tokenizer, model)
     
-    print('outputs:', outputs)
+    print('\n\noutputs:', outputs)
 
     del model
     del tokenizer
