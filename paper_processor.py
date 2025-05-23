@@ -7,6 +7,8 @@ class PaperProcessor:
         self.embed_model = embed_model 
         self.model = model
         self.paper = paper
+        self.current_title = ""
+        self.current_heading_summary = ""
 
     def is_heading(self, title: str) -> bool:
         input = prompts.is_heading_prompt.format(self.paper.paper_structure, title)

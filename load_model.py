@@ -7,14 +7,14 @@ class ModelLoader:
         self.model_id = base_model_id
 
         # 4bit
-        self.bnb_config = BitsAndBytesConfig(
+        self.bnb_config_4_bit = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_use_double_quant=True,
             bnb_4bit_compute_dtype=torch.bfloat16
         )
 
         # 8bit
-        self.bnb_config = BitsAndBytesConfig(
+        self.bnb_config_8_bit = BitsAndBytesConfig(
             load_in_8bit=True,
             llm_int8_threshold=6.0,  
             llm_int8_skip_modules=None
@@ -31,8 +31,8 @@ class ModelLoader:
 
         self.llm = AutoModelForCausalLM.from_pretrained(
             self.model_id,
-            quantization_config=self.bnb_config,
-            device_map="auto"
+            quantization_config=self.bnb_config_4_bit,
+            device_map="auto",
         )
     
     def invoke(self, input: str) -> str:

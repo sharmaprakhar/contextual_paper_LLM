@@ -3,4 +3,4 @@ paper_dir: "paper_jsons"
 paper: "Breaking_LTE.json"
 collection_name: "breaking_lte"
 embed_model: "BAAI/bge-large-en" # - sweep this 5 models
-base_model: "mistralai/Mixtral-8x22B-Instruct-v0.1" # 5 models
+base_model: "mistralai/Mixtral-8x7B-Instruct-v0.1" # "mistralai/Mixtral-8x22B-Instruct-v0.1" # 5 models
