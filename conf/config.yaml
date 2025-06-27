@@ -1,0 +1,27 @@
+# Data
+run_indexing: False
+process_all_index: False
+
+run_inference: True
+process_all_inference: True
+
+db_dir: "./contextual_chroma"
+paper_dir: "paper_jsons"
+
+# single processing 
+paper: "Breaking_LTE.json"
+# collection_name: "breaking_lte" 
+
+# Modeling
+embed_model: "BAAI/bge-large-en" # - sweep this 5 models
+base_model: "mistralai/Mixtral-8x7B-Instruct-v0.1" 
+# base_model: "MaziyarPanahi/zephyr-7b-beta-Mistral-7B-Instruct-v0.2"
+
+# Hyperparams
+cuda_visible_devices: "0,1,2,3,4,5,6,7"
+retriever:
+  top_k: 15
+reranker:
+  top_n: 3
+  min_score: 7
+

@@ -1,5 +1,6 @@
 cuda_visible_devices: "0,1,2,3,4,5,6,7"
-base_model_id: "mistralai/Mixtral-8x7B-Instruct-v0.1"
+# base_model_id: "mistralai/Mixtral-8x7B-Instruct-v0.1"
+base_model_id: "MaziyarPanahi/zephyr-7b-beta-Mistral-7B-Instruct-v0.2"
 retriever:
   top_k: 15
 
@@ -10,3 +11,5 @@ reranker:
 paper_dir: "paper_jsons"
 paper_file: "Breaking_LTE.json"
 colname: "breaking_lte"
+
+

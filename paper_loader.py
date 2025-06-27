@@ -4,7 +4,9 @@ import prompts
 from typing import List, Dict, Any, Tuple
 
 class PaperLoader:
-    def __init__(self, paper_json, model) -> None:
+    def __init__(self, paper_dir, paper, model) -> None:
+        self.paper_dir = paper_dir
+        paper_json = os.path.join(self.paper_dir, paper)
         self.paper = paper_json
         self.model = model
         self.load_paper()

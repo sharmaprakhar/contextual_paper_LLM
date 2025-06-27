@@ -1,7 +1,9 @@
 .conda
 .vscode
-output
+outputs
+contextual_chroma
 __pycache__
 *.pyc
 *.sqlite3
 *.slurm
+

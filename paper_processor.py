@@ -1,12 +1,15 @@
 import os
 import prompts
+from paper_loader import PaperLoader
 from llama_index.core import Document
 
 class PaperProcessor:
-    def __init__(self, embed_model, model, paper) -> None:
+    def __init__(self, embed_model, model, paper_dir, paper_json=None) -> None:
         self.embed_model = embed_model 
         self.model = model
-        self.paper = paper
+        # self.paper = paper
+        print('\nLoading Paper...\n')
+        self.paper = PaperLoader(paper_dir, paper_json, self.model)
         self.current_title = ""
         self.current_heading_summary = ""
 
