@@ -1,4 +1,4 @@
-# contextual_paper_LLM
+# contextual_paper_LLM - consolidated
 
 This repository implements contextual retrieval for academic papers, with a focus on 4G/5G/LTE network security. It sets up:
 - A domain-adapted LLM acting as a 5G security expert
@@ -35,16 +35,19 @@ Configuration files are located in the `conf/` directory:
 
 - `conf/index_config.yaml` — settings for indexing academic papers
 - `conf/inference_config.yaml` — parameters for inference and retrieval
+- `conf/config.yaml` — consolidated parameters for inference and retrieval
+
+
 
 ## Create contextual index using an extracted paper json
 
 ```bash
-python run_index.py
+python run.py
 ```
 
 
-## Run inference for the default query (extracting names of novel 4G/5G/LTE/ORAN attacks - assumes a contextual index was created from the target paper)
+<!-- ## Run inference for the default query (extracting names of novel 4G/5G/LTE/ORAN attacks - assumes a contextual index was created from the target paper)
 
 ```bash
 python run_inference.py
-```
+``` -->

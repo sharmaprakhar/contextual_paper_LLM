@@ -1,9 +1,9 @@
 # Data
-run_indexing: False
-process_all_index: False
+run_indexing: False # run indexing 
+process_all_index: False # run indexing for all papers vs 'paper' mentioned below
 
-run_inference: True
-process_all_inference: True
+run_inference: True # run inference
+process_all_inference: True #  run inference for all papers vs 'paper' mentioned below
 
 db_dir: "./contextual_chroma"
 paper_dir: "paper_jsons"
